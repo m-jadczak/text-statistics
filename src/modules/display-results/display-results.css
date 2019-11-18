@@ -1,0 +1,11 @@
+.results-panel{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  transition: opacity 1s;
+}
+
+.results-panel-prepering{
+  opacity: 0;
+}

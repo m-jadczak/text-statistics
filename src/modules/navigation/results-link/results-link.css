@@ -1,0 +1,24 @@
+.results-link{
+  background: url("/img/results.svg") no-repeat center;
+  background-size: contain;
+}
+
+.results-link .profile{
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  bottom: 2%;
+  left: 2%;
+  fill: rgb(251,251,251);
+  stroke: rgb(251,251,251);
+  transition: fill, stroke 1s;
+}
+
+.active .results-link .profile{
+  fill: #d4aa00;
+  stroke: #d4aa00;
+}
+
+.active .results-link::after{
+  opacity: 1;
+}

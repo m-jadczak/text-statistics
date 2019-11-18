@@ -1,0 +1,30 @@
+footer a{
+  text-decoration: none;
+  color: rgb(77, 72, 76);
+}
+
+footer .signature{
+  position: relative;
+  cursor: pointer;
+}
+
+footer .firstname-sign, .lastname-sign{
+  display: inline-block;
+  left: 0;
+  position: relative;
+  transition: all 1s;
+}
+
+footer .lastname-sign{
+  padding-left: 0.5rem;
+}
+
+ footer .signature:hover > .firstname-sign, footer .signature:focus > .firstname-sign{
+  transform: translate(105%,0);
+  color: rgba(174, 190, 204,0.75)
+ }
+
+ footer .signature:hover > .lastname-sign, footer .signature:focus > .lastname-sign{
+  transform: translate(-100%,0);
+  color: rgb(212, 170, 0)
+ }

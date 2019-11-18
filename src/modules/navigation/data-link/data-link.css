@@ -1,0 +1,13 @@
+.data-link{
+  background: url("/img/data.svg") no-repeat center;
+  background-size: contain;
+}
+
+.data-link::after{
+  background: url("/img/data-mask.svg") no-repeat center;
+  background-size: contain;
+}
+
+.active .data-link::after{
+  opacity: 1;
+}

@@ -1,0 +1,13 @@
+.home-link{
+  background: url("/img/home.svg") no-repeat center;
+  background-size: contain;
+}
+
+.home-link::after{
+  background: url("/img/home-mask.svg") no-repeat center;
+  background-size: contain;
+}
+
+.active .home-link::after{
+  opacity: 1;
+}

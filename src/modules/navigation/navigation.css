@@ -1,0 +1,141 @@
+.side-nav{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.side-nav li{
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-nav li:first-child, .side-nav li:last-child{
+  flex:0.5;
+}
+
+.side-nav header, .side-nav .svg-container{
+box-sizing: border-box;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+height: 100%;
+width: 100%;
+padding: 1%;
+position: relative;
+font-size: 2vw;
+overflow: hidden;
+}
+
+.side-nav header{
+  padding: 4%;
+}
+
+
+.side-nav a{
+  flex:1;
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.side-nav a:hover,.side-nav a:focus{
+  opacity: 1;
+}
+
+.side-nav .active{
+  opacity: 1;
+  background-color: rgba(174, 190, 204,0.75);
+}
+
+
+.side-nav .link-title{
+  text-align: center;
+  transition: transform 0.5s;
+}
+
+.side-nav .active .link-title{
+  overflow: hidden;
+  transform: translate(0,130%);
+}
+
+.side-nav .nav-link{
+  position: relative;
+  flex: 2;
+  margin: 10px;
+  transform-origin: top;
+  transition: transform 0.5s 0.2s;
+}
+
+.side-nav .nav-link::after{
+  opacity: 0;
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  transition: opacity 0.5s;
+}
+
+.side-nav .active .nav-link{
+  transform: scale(1.2);
+}
+
+@media (max-width:800px) {
+.side-nav{
+  flex-direction: row;
+}
+.side-nav a{
+  width: auto;
+  height: 100%;
+}
+.side-nav li:first-child{
+  flex:2;
+}
+.side-nav li:last-child{
+  flex:0;
+}
+  .side-nav footer{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  width: 100vw;
+  box-shadow: 0 0 3px black;
+  background: url("/img/circuit-board.svg");
+  background-color: rgba(18, 64, 112,0.95);
+}
+.side-nav .footer-subscribe{
+  margin-left: 4px;
+}
+
+.side-nav footer a{
+  display: inline;
+}
+  @media (orientation:landscape){
+    .side-nav .nav-link{
+        margin: 1px;
+    }
+    .side-nav .svg-container{
+      padding: 2%;
+    }
+  }
+}
+
+@media (orientation:portrait) {
+  .side-nav header, .side-nav .svg-container{
+  font-size: 2vh;
+  }
+}
