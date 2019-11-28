@@ -1,0 +1,14 @@
+.displayed-results .grid{
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 2fr 1fr;
+  padding: 10px;
+}
+
+.displayed-results .grid h3, .displayed-results .grid .annotation{
+  grid-column: 1 / 3;
+}
+
+.displayed-results .right-result{
+  text-align: right;
+}

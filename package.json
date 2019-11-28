@@ -2,6 +2,7 @@
   "name": "text-stat",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://tst.jdev.pl",
   "dependencies": {
     "react": "^16.11.0",
     "react-anchor-link-smooth-scroll": "^1.0.12",

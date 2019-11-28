@@ -1,0 +1,54 @@
+.generate-button{
+  transition: opacity 0.5s;
+  overflow: hidden;
+  margin: 1rem;
+}
+
+.generate-button .cogs-image{
+  background: url("/img/gears-stop.svg") no-repeat center;
+  background-size: contain;
+}
+
+.generate-button .cogs-image::after{
+  background: url("/img/gears-run.svg") no-repeat center;
+  background-size: contain;
+}
+
+.generate-button:hover .cogs-image{
+  background: none;
+}
+
+.generate-button .button-title{
+  transition: transform 0.5s;
+}
+
+.generate-button.working .button-title{
+  display: inline-block;
+  transform: translateY(100px);
+}
+
+.generate-button.working .cogs-image{
+  background: none;
+  transform-origin: top;
+  transform: scale(1.5);
+}
+
+.generate-button.working .cogs-image::after{
+  opacity: 1;
+}
+
+.generate-button.big-data::before{
+  width: 100%;
+  text-align: center;
+  content: "Wczytałeś długi tekst... Generowanie statystyk może chwilę potrwać."
+}
+
+.generate-button.working:focus, .generate-button.working:active{
+  background-color: rgba(18, 64, 112,0.95);
+  color: rgb(255, 247, 238);
+  opacity: 1;
+}
+
+.generate-button.working:hover{
+  opacity: 1;
+}

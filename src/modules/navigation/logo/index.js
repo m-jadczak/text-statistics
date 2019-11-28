@@ -3,7 +3,7 @@ import "./logo.css";
 
 const Logo = () => {
   return (
-    <header title="logo TST - Trudny statystyczny tekst"><div className="logo"></div></header>
+    <header title="TST - Trafne Statystyki Tekstu"><div className="logo"></div></header>
   );
 };
 

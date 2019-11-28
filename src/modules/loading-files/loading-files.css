@@ -1,3 +1,69 @@
-.file-input{
+.file-panel .file-input{
   display: none;
+}
+
+.file-panel .file-image{
+  background: url("/img/upload-file.svg") no-repeat center;
+  background-size: contain;
+}
+
+.file-panel .file-image::after{
+  background: url("/img/upload-file-mask.svg") no-repeat center;
+  background-size: contain;
+}
+
+.file-panel button{
+  position: relative;
+}
+
+.file-panel button::before{
+  background: url("/img/gears-stop.svg") no-repeat center;
+  background-size: contain;
+  background-color: rgb(18, 64, 112);
+  opacity: 0;
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  z-index: 10;
+  transition: opacity 0.3s;
+}
+
+.file-panel button.loading{
+  pointer-events: none;
+}
+
+.file-panel button.loading:active{
+  opacity: 1;
+}
+
+.file-panel button.loading::before{
+  background: url("/img/gears-run.svg") no-repeat center;
+  background-size: contain;
+  background-color: rgb(18, 64, 112);
+  opacity: 1;
+ }
+
+.file-panel .footnote{
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.file-panel .sup{
+  vertical-align: super;
+}
+
+.file-panel .invisable{
+  display: none;
+}
+
+@media (max-width:800px) and (orientation:landscape) {
+  .file-panel{
+    flex-direction: row;
+  }
 }

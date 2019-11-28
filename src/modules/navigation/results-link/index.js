@@ -5,7 +5,7 @@ import Proflie from "./profile";
 
 const ResultsLink = ({isActive}) => {
   let isJustMounted = useRef(false);
-  useEffect(()=>{isJustMounted.current=true;console.log(isJustMounted.current)},[]);
+  useEffect(()=>{isJustMounted.current=true;},[]);
 
   return (
     <div className="svg-container">

@@ -4,6 +4,10 @@
   display: flex;
   text-align: center;
   transition: opacity 1s;
+  margin-bottom: 50px;
+}
+.results-panel > a{
+  margin-bottom: 10px;
 }
 
 .results-panel-prepering{

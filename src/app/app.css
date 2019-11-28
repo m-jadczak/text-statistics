@@ -53,12 +53,12 @@ nav{
 
 
 button {
+  font-family: 'Source Code Pro', monospace;
   background-color: rgba(18, 64, 112,0.95);
-  opacity: 0.8;
+  opacity: 1;
   color: rgb(255, 247, 238);
-  /* font-weight: bold; */
   font-size: 1rem;
-  border: rgb(0,0,0) 1px solid;
+  border: none;
   padding: 8px;
   cursor: pointer;
 }
@@ -66,7 +66,7 @@ button {
 
 button:active{
   color: rgba(18, 64, 112,0.95);
-  background-color: rgb(255, 247, 238);
+  background-color: rgba(18, 64, 112,0.4);
 }
 
 a{
@@ -74,8 +74,10 @@ a{
   color: rgba(18, 64, 112,0.95);
   text-decoration: none;
 }
-
-a:hover, a:focus, button:hover,button:focus{
+button:hover,button:focus{
+  opacity: 0.4;
+}
+a:hover, a:focus{
   opacity: 1;
 }
 
@@ -88,12 +90,10 @@ input, textarea {
   color: rgb(103, 103, 108);
 }
 
-
-
 section{
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
   justify-content: space-around;
 }
 
@@ -102,7 +102,6 @@ h1{
 }
 
 .section-container{
-  height: 100vh;
   background-color: rgb(251, 251, 251,0.95);
   box-shadow: 0 -3px 10px rgba(251, 251, 251,0.95);
 }
@@ -111,6 +110,7 @@ h1{
   background-color: rgba(174, 190, 204,0.2);
   box-shadow: 0 -3px 10px rgba(174, 190, 204, 0.2);
 }
+
 
 .panel{
   border: 0.3rem rgba(18, 64, 112,0.95) solid;
@@ -135,6 +135,7 @@ margin: 0.5rem
 }
 
 .flex-container{
+  flex: 1;
   padding: 5px;
   display: flex;
   align-items: center;
@@ -145,17 +146,38 @@ margin: 0.5rem
   flex-direction: column;
 }
 
-.blue-background{
-  background: url("/img/circuit-board.svg");
-  background-color: rgba(18, 64, 112,0.95);
+.button-image{
+  display: block;
+  height: 2.5rem;
+  pointer-events: none;
+  transform: scale(0.8);
+  transition: transform 0.5s;
 }
 
-.font-two-rem{
-  font-size: 2rem;
+.button-image::after{
+  opacity: 0;
+  display: block;
+  content: "";
+  height: 100%;
+  width: 100%;
+  transition: opacity 0.5s;
+  pointer-events: none;
 }
 
-.font-three-rem{
-  font-size: 3rem;
+button:hover .button-image{
+  transform: scale(1);
+}
+
+button:hover .button-image::after, button:focus .button-image::after{
+  opacity: 1
+}
+
+.font-small{
+  font-size: 0.7rem;
+}
+
+.font-gold{
+  color: rgb(212, 170, 0);
 }
 
 @media (max-width:1024px) {
@@ -175,9 +197,11 @@ margin: 0.5rem
   main{
     padding-left: 0;
   }
+  section{
+    min-height: 85vh;
+  }
   .section-container{
     padding-top: 15vh;
-    height: 85vh;
   }
   .flex-direction-responsive{
     flex-direction: row;

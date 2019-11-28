@@ -5,9 +5,9 @@ import LoadingFiles from "../../modules/loading-files";
 import DisplayResults from "../../modules/display-results";
 import Home from "./home-page";
 
-const MainContent = ({appStateHook}) => {
+const MainContent = ({ appStateHook }) => {
   return (
-  <main>
+    <main>
     <div className="section-container" id={"home-page"}>
       <section>
         <Home/>

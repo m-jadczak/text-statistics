@@ -1,15 +1,15 @@
 import React from "react";
 
-const Home = ()=>{
-  return [
-    <div key="home-description" className="panel">
-    <h1 key="home-header" className="flex-container">TekStaT - statystyki textu</h1>
-    <p>Witaj na stronie aplikacji TekStaT. Jest to narzędzie pozwalające na szczegółową analize tekstu online.
-    Oprócz popularnych statystyk tekstu takich jak liczba znaków, najczęściej powtarzający się wyraz, liczba słow,
-    TekStaT oblicza też wiele innych jak np. przybliżona liczba sylab.</p>
-  <p className="keyboard-only">Oprócz korzystania ze standardowego menu, po aplikacji możesz również nawigować za pomocą klawiatury (strzałki ↑/↓)</p>
-    </div>
-  ];
+const Home = () => {
+  return (
+    <div className="panel home-page">
+    <h1 key="home-header" className="flex-container">
+      <span>T<span className="font-gold">S</span>T - Trafne Statystyki Tekstu</span>
+    </h1>
+    <p>Witaj na stronie aplikacji T<span className="font-gold">S</span>T. Jest to narzędzie, pozwalające na szczegółową analizę tekstu online. Oprócz popularnych statystyk, takich jak: liczba znaków, czy liczba słów w tekście, T<span className="font-gold">S</span>T oblicza wiele innych np. liczbę znaków interpunkcyjnych.</p>
+    <p className="keyboard-only">Poza korzystaniem z menu, po aplikacji możesz nawigować za pomocą klawiatury (strzałki ↑/↓).</p>
+    <p>Masz uwagi? Napisz do mnie. Kliknij w stopce moją wizytówkę.</p>
+  </div>);
 };
 
 export default Home;

@@ -52,17 +52,18 @@ const useNavigation = () => {
 const setActiveClass = (linkNr,currentActive) => (linkNr===currentActive) ? "active" : "";
 
 const handleScroll = (currentActive,setActive)=>{
-  const homeSectionBounds = document.getElementById(LINK_IDS[0]).getBoundingClientRect();
-  const elementsDist = {distHomePage: homeSectionBounds.top,
-        distDataHandling: document.getElementById(LINK_IDS[1]).getBoundingClientRect().top,
-        distResults: document.getElementById(LINK_IDS[2]).getBoundingClientRect().top};
-  const {distHomePage,distDataHandling,distResults} = elementsDist;
-  const offset = homeSectionBounds.height/2;
+  const sectionsBounds = [document.getElementById(LINK_IDS[0]).getBoundingClientRect(),
+        document.getElementById(LINK_IDS[1]).getBoundingClientRect(),
+        document.getElementById(LINK_IDS[2]).getBoundingClientRect()];
+
+  const dist = sectionsBounds.map((bound)=>bound=bound.top);
+
+  const offset = sectionsBounds[1].height/2;
   let activeSection;
 
-  if(distDataHandling>offset && distResults>0) {activeSection = 0;}
-  else if (distHomePage<offset && distResults>offset) {activeSection = 1;}
-  else if (distDataHandling<offset && distHomePage<0) activeSection = 2;
+  if(dist[1]>offset && dist[2]>0) {activeSection = 0;}
+  else if (dist[0]<offset && dist[2]>offset) {activeSection = 1;}
+  else if (dist[1]<offset && dist[0]<0) activeSection = 2;
 
     if(currentActive!==activeSection) {
       window.history.pushState(LINK_IDS[activeSection],LINK_IDS[activeSection],"#"+LINK_IDS[activeSection]);
