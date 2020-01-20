@@ -70,7 +70,7 @@ button:active{
 }
 
 a{
-  opacity: 0.7;
+  opacity: 0.8;
   color: rgba(18, 64, 112,0.95);
   text-decoration: none;
 }
@@ -95,6 +95,10 @@ section{
   flex-direction: column;
   min-height: 100vh;
   justify-content: space-around;
+}
+
+#home-page{
+  position: relative;
 }
 
 h1{
@@ -180,6 +184,8 @@ button:hover .button-image::after, button:focus .button-image::after{
   color: rgb(212, 170, 0);
 }
 
+
+
 @media (max-width:1024px) {
   html{
     font-size: 16px;
@@ -200,11 +206,30 @@ button:hover .button-image::after, button:focus .button-image::after{
   section{
     min-height: 85vh;
   }
+
   .section-container{
     padding-top: 15vh;
   }
   .flex-direction-responsive{
     flex-direction: row;
+  }
+}
+
+@media (orientation:portrait) and (max-height:550px){
+  h2{
+    font-size: 1rem
+  }
+  section{
+    min-height: 510px;
+  }
+}
+
+@media (orientation:landscape) and (max-height:320px){
+  h2{
+    font-size: 1rem
+  }
+  section{
+    min-height: 360px;
   }
 }
 

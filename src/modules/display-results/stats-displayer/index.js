@@ -8,8 +8,11 @@ import Frequency from "./frequency";
 import Punctuation from "./punctuation";
 import Sentences from "./sentences";
 import Numbers from "./numbers";
+import {useTranslate } from "react-translate";
+
 
 const StatsDisplayer = ({statistics}) => {
+  const t = useTranslate("StatsDisplayer");
 
   useEffect(()=>{});
 
@@ -24,7 +27,7 @@ const StatsDisplayer = ({statistics}) => {
 
 
   </div>,
-  <AnchorLink key="1" href="#data-handling">Załaduj inne dane</AnchorLink>]
+  <AnchorLink key="1" href="#data-handling">{t("LOAD_OTHER")}</AnchorLink>]
   );
 };
 

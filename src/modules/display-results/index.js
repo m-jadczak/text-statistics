@@ -2,19 +2,21 @@ import React, {useState} from "react";
 import PropTypes from "prop-types";
 import "./display-results.css";
 import {DataNotFound, StatsGenerator, StatsDisplayer} from "./components";
+import {useTranslate } from "react-translate";
 
 const DisplayResults = ({appStateHook}) => {
   const [statistics,setStatistics] = useState({});
+  const t = useTranslate("DisplayResults");
 
   return (
     <div className={`panel results-panel${appStateHook.appState.status==="PREPARING_RESULTS"?" results-panel-prepering":""}`}>
-      {chooseComponent(appStateHook,statistics,setStatistics)}
+      {chooseComponent(appStateHook,statistics,setStatistics,t)}
     </div>
   );
 };
 
 
-const chooseComponent = (appStateHook,statistics,setStatistics) =>{
+const chooseComponent = (appStateHook,statistics,setStatistics,t) =>{
   const status = appStateHook.appState.status;
 
   switch (status) {
@@ -25,7 +27,7 @@ const chooseComponent = (appStateHook,statistics,setStatistics) =>{
     case "DONE":
       return <StatsDisplayer statistics={statistics}/>;
     case "ERROR":
-      return [<h2 key="1">Ups... Coś poszło nie tak :(</h2>, <p key="2">Spróbuj ponownie wczytać dane. Jeżeli problem będzie się powtarzał - napisz do mnie. Adres znajduje się w stopce. Kliknij na moje imię i nazwisko.</p>];
+      return [<h2 key="1">{t("HEADER_ERROR")} :(</h2>, <p key="2">{t("DESC_ERROR")}</p>];
     default:
       return <DataNotFound/>;
   }

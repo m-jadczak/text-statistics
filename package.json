@@ -2,12 +2,13 @@
   "name": "text-stat",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://tst.jdev.pl",
+  "homepage": "https://tst.jdev.pl",
   "dependencies": {
-    "react": "^16.11.0",
+    "react": "^16.12.0",
     "react-anchor-link-smooth-scroll": "^1.0.12",
-    "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-dom": "^16.12.0",
+    "react-scripts": "^3.3.0",
+    "react-translate": "^7.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -31,7 +32,9 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^6.6.0",
-    "eslint-plugin-react-hooks": "^2.2.0"
+    "@testing-library/react-hooks": "^3.2.1",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "react-test-renderer": "^16.12.0"
   }
 }

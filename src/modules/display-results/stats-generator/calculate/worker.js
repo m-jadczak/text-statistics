@@ -21,7 +21,7 @@ const REGEX = {
 
     self.addEventListener("message", calculate = e => {// eslint-disable-line no-restricted-globals
       if (!e) return;
-      let text,
+      let text, t,
           charsFrequency=[{"char":"",count:"0"}],
           wordsFrequency=[{"word":"",count:"0"}],
           sentences={count:0,max:null,min:null,current:0,totalWords:0},
@@ -29,7 +29,8 @@ const REGEX = {
           numbers={count:0,current:"",max:null,min:null},
           stats, currentOpen=[], extractionCount=0, allCharsCount=0, mathChars={separators:0,minus:0};
 
-      text = e.data;
+      text = e.data[0];
+      t = e.data[1];
       stats = {};
 
         for (let i = 0; i < text.length; i++) {
@@ -42,8 +43,8 @@ const REGEX = {
             allCharsCount+=1;
             matcher.prev = text[i];
         }
-        charsFrequency = countFrequency(matcher.chars,"char");
-        wordsFrequency = countFrequency(matcher.words,"word");
+        charsFrequency = countFrequency(matcher.chars,"char",t);
+        wordsFrequency = countFrequency(matcher.words,"word",t);
 
         stats.allCharsCount = allCharsCount;
         stats.charsFrequency = charsFrequency;
@@ -164,29 +165,33 @@ const REGEX = {
       } else return 0;
     };
 
-    const convertWhites= (char) => {
-      switch (char) {
-        case "\u0020":
-          return "SPACJA";
-        case "\u0009":
-          return "TABULATOR";
-        case "\u000D":
-          return "KONIEC LINII";
-        case "\u000A":
-          return "KONIEC LINII";
-        case "\u000C":
-          return "PODZIAŁ STRONY";
-        default:
-          return char;
-      }
+    const convertWhites= (char,t) => {
+      let hex;
+      if(/\s/.test(char))
+        {switch (char) {
+          case "\u0020":
+            return t["SPACE"]+" (U+0020)";
+          case "\u0009":
+            return t["TAB"]+" (U+0009)";
+          case "\u000D":
+            return t["EOL"]+" (U+000D)";
+          case "\u000A":
+            return t["EOL"]+" (U+000A)";
+          case "\u000C":
+            return t["FORM_FEED"]+" (U+000C)";
+          default:
+            hex = char.codePointAt(0).toString(16);
+            return t["WHITE"]+" (U+" + "0000".substring(0, 4 - hex.length) + hex +")";
+          }}
+        else return char;
     };
 
-    const countFrequency = (object,propName) => {
+    const countFrequency = (object,propName,t) => {
       return (Object.keys(object)
           .sort((a,b)=>object[a] - object[b]))
           .map((key)=>{
            let pair = {count:object[key]};
-           pair[propName]= key.length===1 ? convertWhites(key) : key;
+           pair[propName]= key.length===1 ? convertWhites(key,t) : key;
            return pair;
          })
           .slice(-3);

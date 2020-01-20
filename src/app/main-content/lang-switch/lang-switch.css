@@ -1,0 +1,56 @@
+.languages{
+  position: absolute;
+  left: calc(50% - 2.5rem);
+  top: 17%;
+  min-width: 5rem;
+  z-index: 1;
+  display: flex;
+  background-color: white;
+  border: 0.2rem rgba(18, 64, 112,0.95) solid;
+  color:rgb(23,23,23);
+  padding:0;
+}
+.languages:active{
+  background-color: inherit;
+}
+
+.languages:hover, .languages:active, .languages:focus{
+  opacity: 1;
+  border: 0.2rem rgba(18, 64, 112,0.4) solid;
+}
+
+.languages span{
+  flex:1;
+  margin: 0;
+  display: block;
+  width: 100%;
+  opacity: 0.7;
+  transform: scale(0.7);
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.current-pl .pl{
+  color: rgb(255, 247, 238);
+  background-color: rgba(18, 64, 112,0.95);
+  transform: scale(1);
+  opacity: 1
+}
+
+.current-en .en{
+  color: rgb(255, 247, 238);
+  background-color: rgba(18, 64, 112,0.95);
+  transform: scale(1);
+  opacity: 1
+}
+
+@media (max-width: 800px) and (orientation:landscape) {
+  .languages{
+    margin-left: 0.5rem;
+    min-width: 0;
+    padding: 1px;
+    z-index: 3;
+    left: 0;
+    top: 0%;
+
+  }
+}

@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./navigation.css";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import {HomeLink,DataLink,ResultsLink,Logo,Footer} from "./components";
+import {useTranslate } from "react-translate";
 
 const LINK_IDS = ["home-page", "data-handling", "results"];
 
 const Navigation = () => {
+  const t = useTranslate("Navigation");
   const currentActive = useNavigation();
 
   return (<nav>
@@ -13,16 +15,16 @@ const Navigation = () => {
       <li><Logo/></li>
       <li><AnchorLink className={setActiveClass(0,currentActive)}
                       onClick={(e)=>e.target.blur()}
-                      href="#home-page" aria-label="Strona główna">
-                      <HomeLink/>
+                      href="#home-page" aria-label={t("HOME_LABEL")}>
+                      <HomeLink label={t("HOME_LABEL")}/>
           </AnchorLink></li>
       <li><AnchorLink className={setActiveClass(1,currentActive)}
                       onClick={(e)=>e.target.blur()}
-                      href="#data-handling" aria-label="Wprowadź dane"><DataLink/></AnchorLink></li>
+                      href="#data-handling" aria-label={t("DATA_LABEL")}><DataLink label={t("DATA_LABEL")}/></AnchorLink></li>
       <li><AnchorLink className={setActiveClass(2,currentActive)}
                       onClick={(e)=>e.target.blur()}
-                      href="#results" aria-label="Pokaż wyniki"><ResultsLink isActive={currentActive===2}/></AnchorLink></li>
-                    <li><Footer/></li>
+                      href="#results" aria-label={t("RESULTS_LABEL")}><ResultsLink label={t("RESULTS_LABEL")} isActive={currentActive===2}/></AnchorLink></li>
+                    <li><Footer label={t("FOOTER_LABEL")}/></li>
     </ul>
   </nav>);
 };

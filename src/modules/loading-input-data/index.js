@@ -1,16 +1,18 @@
 import React, {useRef} from "react";
 import PropTypes from "prop-types";
 
+import {useTranslate } from "react-translate";
 import "./loading-input-data.css";
 
 const LoadingInputData = ({appStateHook}) => {
   const refTextArea = useRef();
+  const t = useTranslate("LoadingInputData");
 
-  return <form onSubmit={(e)=>{e.preventDefault(); onSubmit(appStateHook,refTextArea);}} className="panel input-panel">
-          <h2 className="flex-container">Wpisz lub wklej tekst</h2>
-          <div aria-label="Wpisz lub wklej skopiowany tekst..." className="flex-container flex-direction-responsive">
-            <textarea onKeyDown={(e)=>onKeyDown(e)} onFocus={(e)=>onFocus(e)} ref={refTextArea} defaultValue="Wpisz lub wklej tekst."></textarea>
-            <button type="submit" onClick={(e)=>e.target.blur()}><span className="submit-image button-image"></span>Wczytaj dane</button>
+  return <form key={`submit_${t("TYPE_OR_PASTE")}`} onSubmit={(e)=>{e.preventDefault(); onSubmit(appStateHook,refTextArea);}} className="panel input-panel">
+          <h2 className="flex-container"><label htmlFor="txt-area">{t("TYPE_OR_PASTE")}</label></h2>
+          <div aria-label={t("TYPE_OR_PASTE")} className="flex-container flex-direction-responsive">
+            <textarea id="txt-area" onKeyDown={(e)=>onKeyDown(e)} onFocus={(e)=>onFocus(e)} ref={refTextArea} defaultValue={t("TYPE_OR_PASTE")+"."}></textarea>
+            <button type="submit" onClick={(e)=>e.target.blur()}><span className="submit-image button-image"></span>{t("LOAD_DATA")}</button>
           </div>
         </form>;
 };

@@ -15,12 +15,8 @@ footer .firstname-sign, .lastname-sign{
   transition: all 1s;
 }
 
-footer .lastname-sign{
-  padding-left: 0.5rem;
-}
-
  footer .signature:hover > .firstname-sign, footer .signature:focus > .firstname-sign{
-  transform: translate(105%,0);
+  transform: translate(calc(100% + 1rem),0);
   color: rgba(174, 190, 204,0.75)
  }
 
